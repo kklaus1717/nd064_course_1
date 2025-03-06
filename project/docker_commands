@@ -1,11 +1,41 @@
 ## Docker commands used to build the application 
-# TODO: insert the docker build command
+docker build -t techtrends .
 
 ## Docker commands used to run the application
-# TODO: insert the docker run command
+docker run -d -p 7111:3111 techtrends
 
 ## Docker commands used to get the application logs
-# TODO: insert the docker logs command
+docker ps
+docker logs 17a3fb8631c1
 
 ## Logs from the container running the TechTrends application
-# TODO: paste logs from the Docker container 
+udacity@suse:project> docker logs 17a3fb8631c1
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+2025-03-06 13:35:47,138 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-03-06 13:35:47,138 - werkzeug - INFO -  * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
+2025-03-06 13:38:27,017 - werkzeug - INFO - 172.17.0.1 - - [06/Mar/2025 13:38:27] "GET / HTTP/1.1" 200 -
+2025-03-06 13:38:27,130 - werkzeug - INFO - 172.17.0.1 - - [06/Mar/2025 13:38:27] "GET /static/css/main.css HTTP/1.1" 200 -
+2025-03-06 13:38:27,137 - werkzeug - INFO - 172.17.0.1 - - [06/Mar/2025 13:38:27] "GET /favicon.ico HTTP/1.1" 404 -
+2025-03-06 13:42:23,577 - werkzeug - INFO - 172.17.0.1 - - [06/Mar/2025 13:42:23] "GET /metrics HTTP/1.1" 200 -
+2025-03-06 13:42:45,882 - werkzeug - INFO - 172.17.0.1 - - [06/Mar/2025 13:42:45] "GET / HTTP/1.1" 200 -
+2025-03-06 13:42:45,938 - werkzeug - INFO - 172.17.0.1 - - [06/Mar/2025 13:42:45] "GET /static/css/main.css HTTP/1.1" 304 -
+2025-03-06 13:42:52,028 - werkzeug - INFO - 172.17.0.1 - - [06/Mar/2025 13:42:52] "GET /create HTTP/1.1" 200 -
+2025-03-06 13:42:52,087 - werkzeug - INFO - 172.17.0.1 - - [06/Mar/2025 13:42:52] "GET /static/css/main.css HTTP/1.1" 304 -
+2025-03-06 13:43:09,312 - app - INFO - A new article is created. Articel title is: hallo world
+2025-03-06 13:43:09,313 - werkzeug - INFO - 172.17.0.1 - - [06/Mar/2025 13:43:09] "POST /create HTTP/1.1" 302 -
+2025-03-06 13:43:09,319 - werkzeug - INFO - 172.17.0.1 - - [06/Mar/2025 13:43:09] "GET / HTTP/1.1" 200 -
+2025-03-06 13:43:09,379 - werkzeug - INFO - 172.17.0.1 - - [06/Mar/2025 13:43:09] "GET /static/css/main.css HTTP/1.1" 304 -
+2025-03-06 13:48:24,343 - app - INFO - An existing article with ID 7is retrieved. Articel title is: hallo world
+2025-03-06 13:48:24,348 - werkzeug - INFO - 172.17.0.1 - - [06/Mar/2025 13:48:24] "GET /7 HTTP/1.1" 200 -
+2025-03-06 13:48:24,422 - werkzeug - INFO - 172.17.0.1 - - [06/Mar/2025 13:48:24] "GET /static/css/main.css HTTP/1.1" 304 -
+2025-03-06 13:48:33,682 - app - INFO - A non-existing article with ID 73535 is accessed and a 404 page is returned
+2025-03-06 13:48:33,686 - werkzeug - INFO - 172.17.0.1 - - [06/Mar/2025 13:48:33] "GET /73535 HTTP/1.1" 404 -
+2025-03-06 13:48:33,751 - werkzeug - INFO - 172.17.0.1 - - [06/Mar/2025 13:48:33] "GET /static/css/main.css HTTP/1.1" 304 -
+2025-03-06 13:49:03,512 - app - INFO - The "About Us" page is retrieved
+2025-03-06 13:49:03,516 - werkzeug - INFO - 172.17.0.1 - - [06/Mar/2025 13:49:03] "GET /about HTTP/1.1" 200 -
+2025-03-06 13:49:03,594 - werkzeug - INFO - 172.17.0.1 - - [06/Mar/2025 13:49:03] "GET /static/css/main.css HTTP/1.1" 304 -
