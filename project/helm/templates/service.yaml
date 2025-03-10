@@ -7,17 +7,18 @@ metadata:
   labels:
     app: techtrends
   name: techtrends
-  namespace: sandbox
+  namespace: {{ .Values.namespace.name }}
 ## Define the desired configuration for the Service resource.
 spec:
   ## Define the ports that the service should serve on. 
   ports:
-  - port: 4111
-    protocol: TCP
-    targetPort: 3111
+  - port: {{ .Values.ports.port }}
+    protocol: {{ .Values.ports.protocol }}
+    targetPort: {{ .Values.ports.targetPort }}
   ## Identify the pods managed by this Service using the following selectors.
   ## In this case, all pods with the label `techtrends`.
   selector:
     app: techtrends
   ## Define the Service type, here set to ClusterIP.
-  type: ClusterIP
+  type: {{ .Values.type }}
+

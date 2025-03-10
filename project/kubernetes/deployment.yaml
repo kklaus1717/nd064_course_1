@@ -8,11 +8,11 @@ metadata:
   labels:
     app: techtrends
   name: techtrends
-  namespace: {{ .Values.namespace.name }}
+  namespace: sandbox
 ## Define the desired configuration for the Deployment resource.
 spec:
   ## Set the number of replicas.
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   ## Identify the pods managed by this Deployment using the following selectors.
   ## In this case, all pods with the label `techtrends`.
   selector:
@@ -29,22 +29,22 @@ spec:
     spec:
       containers:
         ## Set the image to be executed inside the container and image pull policy
-      - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-        imagePullPolicy: {{ .Values.image.imagePullPolicy }}
+      - image: kklaus1616/techtrends:latest
+        imagePullPolicy: IfNotPresent
         name: techtrends
         ## Expose the port the container is listening on.
         ports:
-        - containerPort: {{ .Values.containerPort }}
+        - containerPort: 3111
           protocol: TCP
         ## Define the rules for the liveness probes.
         livenessProbe:
            httpGet:
-             path: {{ .Values.livenessProbe.path }}
+             path: /healthz
              port: 3111
         ## Define the rules for the readiness probes.
         readinessProbe:
            httpGet:
-             path: {{ .Values.readinessProbe.path }}
+             path: /healthz
              port: 3111
         ## Set the resource requests and limits for an application.
         resources:
@@ -52,11 +52,11 @@ spec:
         ## CPU and memory is allocated for a pod. In this example, 
         ## the pod will be allocated with 64 Mebibytes and 250 miliCPUs.
           requests:
-            memory: {{ .Values.requests.menory }}
-            cpu: {{ .Values.requests.cpu }}
+            memory: "64Mi"
+            cpu: "250m"
         ## The resource limits ensure that the application is not consuming 
         ## more than the specified CPU and memory values. In this example, 
         ## the pod will not surpass 128 Mebibytes and 500 miliCPUs.
           limits:
-            memory: {{ .Values.limits.memory }}
-            cpu: {{ .Values.limits.cpu }}
+            memory: "128Mi"
+            cpu: "500m"
