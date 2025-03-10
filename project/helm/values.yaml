@@ -1,0 +1,31 @@
+namespace:
+  name: sandbox
+ 
+ports:
+  port: 4111
+  protocol: TCP
+  targetPort: 3111
+  type : ClusterIP
+
+image:
+  repository: kklaus1616/techtrends 
+  tag: latest
+  imagePullPolicy: IfNotPresent
+
+replicaCount: 1
+
+requests:
+  memory: "64Mi"
+  cpu: "250m"
+
+limits:
+  memory: "128Mi"
+  cpu: "500m"
+
+containerPort: 3111
+
+livenessProbe:
+  path: /healthz
+
+readinessProbe:
+  path: /healthz

@@ -1,0 +1,11 @@
+namespace:
+  name: staging
+ 
+ports:
+  port: 5111
+
+replicaCount: 3
+
+requests:
+  memory: "90Mi"
+  cpu: "300m"
