@@ -1,0 +1,8 @@
+
+{
+    "http.proxy": "http://sia-lb.telekom.de:8080",
+    "https.proxy": "http://sia-lb.telekom.de:8080",
+    "http.proxyStrictSSL": false,
+    "terminal.integrated.cwd": "C:\\Users\\A788967\\Udacity_Upskilling\\nd064_course_1\\project\\techtrends"
+}
+      
