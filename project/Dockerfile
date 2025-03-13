@@ -5,7 +5,7 @@ COPY ./techtrends /app
 WORKDIR /app
 RUN pip install -r requirements.txt
 
-RUN pyton init_db.py
+RUN python init_db.py
 
 # Expose port 3111
 EXPOSE 3111
