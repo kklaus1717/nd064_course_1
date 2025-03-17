@@ -42,12 +42,12 @@ spec:
         livenessProbe:
            httpGet:
              path: {{ .Values.livenessProbe.path }}
-             port: 3111
+             port: {{ .Values.containerPort }}
         ## Define the rules for the readiness probes.
         readinessProbe:
            httpGet:
              path: {{ .Values.readinessProbe.path }}
-             port: 3111
+             port: {{ .Values.containerPort }}
         ## Set the resource requests and limits for an application.
         resources:
         ## The resource requests guarantees that the desired amount 
